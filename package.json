@@ -3,7 +3,7 @@
   "license": "MIT",
   "displayName": "Mint",
   "description": "VS Code Support for the Mint programming language.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "publisher": "mint-lang",
   "repository": {
     "url": "https://github.com/mint-lang/mint-vscode"
@@ -51,6 +51,11 @@
           "type": "string",
           "enum": ["off","messages","verbose"],
           "default": "verbose"
+        },
+        "mint.format.onsave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically Format .mint files on save"
         }
       }
     },

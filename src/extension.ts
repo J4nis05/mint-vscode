@@ -15,10 +15,14 @@ export async function activate(
   vscode.commands.executeCommand("setContext", "mint:isActivated", true);
 
   // Register formatting provider
-  vscode.languages.registerDocumentFormattingEditProvider(
-    "mint",
-    new MintFormattingProvider()
-  );
+  // Check if mint.autoFormat is enabled
+  let autoFormat: Boolean = vscode.workspace.getConfiguration("mint.format").get("onsave");
+  if (autoFormat) { 
+    vscode.languages.registerDocumentFormattingEditProvider(
+      "mint",
+      new MintFormattingProvider()
+    );
+  }
 
   // Register commands
   vscode.commands.registerCommand("mint.build", cmd.mintBuildCommand);
